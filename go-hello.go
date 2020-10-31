@@ -46,11 +46,11 @@ func getUpstream(kong *pdk.PDK) string {
 
 func (conf Config) Access(kong *pdk.PDK) {
 
-	//upstream := getUpstream(kong)
+	upstream := getUpstream(kong)
 	//kong.ServiceRequest.SetHeader("host", upstream)
 
 	// https://docs.konghq.com/1.2.x/pdk/kong.service/#kongserviceset_upstreamhost
 	//kong.Service.SetUpstream(upstream)
 
-	kong.Response.SetHeader("x-hello-from-go", fmt.Sprintf("Go says %s to %s", "message", "host"))
+	kong.Response.SetHeader("x-hello-from-go", fmt.Sprintf("Go says %s to %s", "message", upstream))
 }
