@@ -44,13 +44,14 @@ func getUpstream(kong *pdk.PDK) string {
 	return defaultUpstream
 }
 
+// Access https://docs.konghq.com/1.0.x/plugin-development/custom-logic/
 func (conf Config) Access(kong *pdk.PDK) {
 
 	upstream := getUpstream(kong)
-	//kong.ServiceRequest.SetHeader("host", upstream)
+	kong.ServiceRequest.SetHeader("host", upstream)
 
 	// https://docs.konghq.com/1.2.x/pdk/kong.service/#kongserviceset_upstreamhost
-	//kong.Service.SetUpstream(upstream)
+	kong.Service.SetUpstream(upstream)
 
 	kong.Response.SetHeader("x-hello-from-go", fmt.Sprintf("Go says %s to %s", "message", upstream))
 }
