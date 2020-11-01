@@ -57,5 +57,5 @@ func (conf Config) Access(kong *pdk.PDK) {
 		kong.Response.SetHeader("x-upstream-fail", "no")
 	}
 
-	kong.Response.SetHeader("x-hello-from-go-1", fmt.Sprintf("Go says %s",  upstream)
+	kong.Response.SetHeader("x-hello-from-go-1", fmt.Sprintf("Go says %s", upstream))
 }
