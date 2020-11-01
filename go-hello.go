@@ -46,7 +46,7 @@ func GetUpstream(kong *pdk.PDK) string {
 
 	// mapping of country, region, and upstream
 	// can be kept in DB and we can fetch it from
-	// there was well. it can be more dynamic if needed
+	// there as well. it can be more dynamic if needed
 	country, region, err := GetHeaders(kong)
 	if err != nil || (country == "" && region == "") {
 		return defaultUpstream
