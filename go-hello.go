@@ -51,7 +51,7 @@ func (conf Config) Access(kong *pdk.PDK) {
 	kong.ServiceRequest.SetHeader("host", upstream)
 
 	// https://docs.konghq.com/1.2.x/pdk/kong.service/#kongserviceset_upstreamhost
-	kong.Service.SetUpstream(upstream)
+	f := kong.Service.SetUpstream(upstream)
 
-	kong.Response.SetHeader("x-hello-from-go", fmt.Sprintf("Go says %s to %s", "message", upstream))
+	kong.Response.SetHeader("x-hello-from-go", fmt.Sprintf("Go says %s to %s, found: %v", "message", upstream, f)
 }
